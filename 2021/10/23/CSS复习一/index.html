@@ -28,7 +28,7 @@
 <meta property="og:description" content="CSS简介和基础选择器的使用1.css简介1.1HTML的局限性 HTML是网页的骨架,只关注内容的语义,例如&lt;h1&gt;表示大标题, &lt;p&gt;表示段落 1.2网页的美容师&#x3D;&#x3D;CSS&#x3D;&#x3D; 是 层叠样式表（Cascading Style Sheets）的简称。 CSS 也是一种标记语言。 CSS 主要用于设置 HTML 页面中的文本内容（字体、大小、对齐方式）、图片的外形（宽高、边">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-23T14:29:50.000Z">
-<meta property="article:modified_time" content="2021-10-25T00:36:09.937Z">
+<meta property="article:modified_time" content="2021-10-25T02:24:08.129Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
@@ -211,7 +211,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-10-25 08:36:09" itemprop="dateModified" datetime="2021-10-25T08:36:09+08:00">2021-10-25</time>
+                <time title="修改时间：2021-10-25 10:24:08" itemprop="dateModified" datetime="2021-10-25T10:24:08+08:00">2021-10-25</time>
               </span>
 
           
@@ -238,16 +238,275 @@
 <li>空格规范</li>
 </ul>
 <h3 id="2-css选择器"><a href="#2-css选择器" class="headerlink" title="2.css选择器"></a>2.css选择器</h3><h4 id="2-1选择器的作用"><a href="#2-1选择器的作用" class="headerlink" title="2.1选择器的作用"></a>2.1选择器的作用</h4><p>选择器就是根据不同需求把不同标签选择出来</p>
-<p>2.2选择器分类</p>
-<p>选择器分为基础选择器和复合选择器两大类</p>
+<h4 id="2-2选择器分类"><a href="#2-2选择器分类" class="headerlink" title="2.2选择器分类"></a>2.2选择器分类</h4><p>选择器分为==基础选择器==和==复合选择器==两大类</p>
 <ul>
 <li>基础选择器由单个选择器组成</li>
 <li>基础选择器包括:包括标签选择器、类选择器、id选择器和通配符选择器</li>
 </ul>
-<p>2.3标签选择器</p>
-<p>直接为HTML标签名作为选择器、按标签名称分类,==为页面某一类标签指定统一的css样式==</p>
+<h4 id="2-3标签选择器"><a href="#2-3标签选择器" class="headerlink" title="2.3标签选择器"></a>2.3标签选择器</h4><p>直接为HTML标签名作为选择器、按标签名称分类,==为页面某一类标签指定统一的css样式==</p>
 <p>语法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">标签名&#123;</span><br><span class="line">	属性1: 属性值1;</span><br><span class="line">	属性2: 属性值2;</span><br><span class="line">    属性3: 属性值3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">标签名&#123;</span><br><span class="line">	属性<span class="number">1</span>: 属性值<span class="number">1</span>;</span><br><span class="line">	属性<span class="number">2</span>: 属性值<span class="number">2</span>;</span><br><span class="line">    属性<span class="number">3</span>: 属性值<span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>**==优点==**标签选择器可以把某一标签全部选择出来,快速为同类型标签设置统一样式</p>
+<p>**==缺点==**不能设置差异化样式，只能选择当前全部标签</p>
+<h4 id="2-4类选择器"><a href="#2-4类选择器" class="headerlink" title="2.4类选择器"></a>2.4类选择器</h4><p>差异化选择不同选择器，单独选一个或者某一标签</p>
+<p>==语法==</p>
+<p>使用<code>class</code>属性来调用class类,样式点定义,结构类调用,一个或多个开发最常用</p>
+<p>类选择器用<code>.</code>号显示</p>
+<p>==注意==</p>
+<p>1.类选择器使用<code>.</code>标识,紧跟类名。</p>
+<p>2.小写,使用<code>+</code>连接单词。</p>
+<p>3.不要使用纯数字,中文。</p>
+<p>4.命名更有意义。</p>
+<h4 id="2-4-1类选择器-多类名"><a href="#2-4-1类选择器-多类名" class="headerlink" title="2.4.1类选择器-多类名"></a>2.4.1类选择器-多类名</h4><p>类名间用空格分开</p>
+<p><code>&lt;span class=&quot;father son&quot;&gt;&lt;/span&gt;</code></p>
+<h4 id="2-5id选择器"><a href="#2-5id选择器" class="headerlink" title="2.5id选择器"></a>2.5id选择器</h4><p>id选择器可以标有特定id的HTML元素指定特定的样式</p>
+<p>HTML元素以id属性来设置id选择器,用#来定义</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#id</span>名&#123;</span><br><span class="line">	属性<span class="number">1</span>:属性值<span class="number">1</span></span><br><span class="line">	...</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="selector-tag">span</span> id=&quot;father&quot;&gt;&lt;/<span class="selector-tag">span</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>样式==#==定义,结构id调用,别人切勿使用。</p>
+<p>id选择器与类选择器的区别</p>
+<p>1.类元素器可以被==多个==元素调用</p>
+<p>2.id选择器只能允许==一个==标签调用</p>
+<p>3.类选择器使用的较多，id选择器用于唯一特性的标签</p>
+<p>2.6通配符选择器</p>
+<p>语法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">*&#123;</span><br><span class="line">	<span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>用*通配符选择器,选取页面中所有标签</li>
+<li>不需要调用,自动给所有标签。</li>
+<li>特殊情况使用</li>
+</ul>
+<h4 id="2-7基础选择器总结"><a href="#2-7基础选择器总结" class="headerlink" title="2.7基础选择器总结"></a>2.7基础选择器总结</h4><table>
+<thead>
+<tr>
+<th>基础选择器</th>
+<th>作用</th>
+<th>特点</th>
+<th>使用情况</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标签选择器</td>
+<td>选中所有标签</td>
+<td>不能差异化选择</td>
+<td>较多</td>
+<td>p{<br />color: red;<br />}</td>
+</tr>
+<tr>
+<td>类选择器</td>
+<td>选出一个或多个标签</td>
+<td>可以根据需求选择</td>
+<td>较多</td>
+<td>.father{<br />color: red<br />}</td>
+</tr>
+<tr>
+<td>id选择器</td>
+<td>一次只能选一次</td>
+<td>一生只能被属性选择一次</td>
+<td>一般配合js使用</td>
+<td>#father{<br />color: red<br />}</td>
+</tr>
+<tr>
+<td>通配符选择器</td>
+<td>选择所有标签元素</td>
+<td>择的太多，有部分不需要</td>
+<td>特殊情况使用</td>
+<td>*father{<br />color: red<br />}</td>
+</tr>
+</tbody></table>
+<h3 id="3-css字体属性"><a href="#3-css字体属性" class="headerlink" title="3.css字体属性"></a>3.css字体属性</h3><h4 id="3-1字体系列"><a href="#3-1字体系列" class="headerlink" title="3.1字体系列"></a>3.1字体系列</h4><p>CSS使用<code>font-family</code>属性定义文本字体。尽量使用默认字体，保证不同浏览器的兼容性</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line">	<span class="attribute">font-family</span>: <span class="string">&quot;宋体&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-2字体大小"><a href="#3-2字体大小" class="headerlink" title="3.2字体大小"></a>3.2字体大小</h4><p>CSS使用<code>font-size</code>属性定义字体大小</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span>&#123;</span><br><span class="line"><span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>px</code>大小是我们网页常用单位</li>
+<li>谷歌浏览器默认是<code>16px</code></li>
+<li>可以给<code>body</code>指定这个页面文字大小</li>
+</ul>
+<h4 id="3-3字体粗细"><a href="#3-3字体粗细" class="headerlink" title="3.3字体粗细"></a>3.3字体粗细</h4><p>CSS使用<code>font-weight</code>属性设置字体粗细</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">p&#123;</span><br><span class="line">	font-weight: 700;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实际开发中,更常用数字来表示加粗或变细。400为normal，700位bold。这两个属性值是开发中最常用的剩下的就自己开发啦~ 注意后面没有单位奥。</p>
+<h4 id="3-4文字样式"><a href="#3-4文字样式" class="headerlink" title="3.4文字样式"></a>3.4文字样式</h4><p>CSS使用<code>font-style</code>属性设置文本风格</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;<span class="attribute">font-style</span>: italic;&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>normal</td>
+<td>正常显示</td>
+</tr>
+<tr>
+<td>italic</td>
+<td><em>斜体</em></td>
+</tr>
+</tbody></table>
+<p>==注意：平常很少给字体加斜体，而是给斜体标签（em,i）给位不倾斜字体。==</p>
+<h4 id="3-5字体符合属性写法"><a href="#3-5字体符合属性写法" class="headerlink" title="3.5字体符合属性写法"></a>3.5字体符合属性写法</h4><p>将各种字体属性写在同一选择器下，节约代码。</p>
+<p>规则</p>
+<p>严格遵守顺序，且 <code>font-siez</code> 和 <code>font-family</code> 必须有。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  font: font-style font-weight font-size/line-hight font-family;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-6字体属性总结"><a href="#3-6字体属性总结" class="headerlink" title="3.6字体属性总结"></a>3.6字体属性总结</h4><table>
+<thead>
+<tr>
+<th>字体属性</th>
+<th>表示</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>font-size</td>
+<td>字号</td>
+<td>单位是 <code>px</code></td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>字体</td>
+<td>按照团队约定来写</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>字体粗细</td>
+<td>400=normal，700=bold</td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>字体样式</td>
+<td>italic，normal，常用 normal</td>
+</tr>
+<tr>
+<td>font</td>
+<td>属性连写</td>
+<td>顺序不能变，字体和字号属性必须有</td>
+</tr>
+</tbody></table>
+<h3 id="4-CSS文本属性"><a href="#4-CSS文本属性" class="headerlink" title="4.CSS文本属性"></a>4.CSS文本属性</h3><p>CSS Text（文本）属性定义文本外观，比如颜色、对齐、装饰、缩进、行间距等。</p>
+<h4 id="4-1文本颜色"><a href="#4-1文本颜色" class="headerlink" title="4.1文本颜色"></a>4.1文本颜色</h4><p><code>color</code> 属性定义文本颜色。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;    &lt;!--英文--&gt;</span><br><span class="line">  <span class="attribute">color</span>:　<span class="number">#FFF</span>;	&lt;!--十六进制--&gt;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">rgb</span>(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>); &lt;!--RGB--&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>属性值:RGB、英文、十六进制 实际开发中最常用十六进制;</p>
+<h4 id="4-2对其文本"><a href="#4-2对其文本" class="headerlink" title="4.2对其文本"></a>4.2对其文本</h4><p><code>text-align</code> 属性用于设置元素文本内容的对齐方式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">div &#123;</span><br><span class="line">  text-align: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>属性值</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>left</td>
+<td>左对齐(默认)</td>
+</tr>
+<tr>
+<td>right</td>
+<td>右对齐</td>
+</tr>
+<tr>
+<td>center</td>
+<td>居中对齐</td>
+</tr>
+</tbody></table>
+<h4 id="4-3装饰文本"><a href="#4-3装饰文本" class="headerlink" title="4.3装饰文本"></a>4.3装饰文本</h4><p><code>text-decoration</code> 属性规定添加到文本的修饰。可以给文本添加下划线、删除线、上划线等。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text-decoration: underline;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th><strong>属性值</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>none</td>
+<td>默认，无装饰（最常用）</td>
+</tr>
+<tr>
+<td>underline</td>
+<td>下划线，a 标签自带（常用）</td>
+</tr>
+<tr>
+<td>overline</td>
+<td>上划线。（几乎不用）</td>
+</tr>
+<tr>
+<td>line-through</td>
+<td>删除线。（不常用）</td>
+</tr>
+</tbody></table>
+<h4 id="4-4文本缩进"><a href="#4-4文本缩进" class="headerlink" title="4.4文本缩进"></a>4.4文本缩进</h4><p><code>text-indent</code>定义段落首行缩进。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	text-indet: <span class="number">5px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-5行间距"><a href="#4-5行间距" class="headerlink" title="4.5行间距"></a>4.5行间距</h4><p><code>line-height</code> 设置行间的距离，行间距=文本高度+上间距+下间距</p>
+<h4 id="4-6文本属性总结"><a href="#4-6文本属性总结" class="headerlink" title="4.6文本属性总结"></a>4.6文本属性总结</h4><table>
+<thead>
+<tr>
+<th><strong>属性</strong></th>
+<th>表示</th>
+<th><strong>注意</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>color</td>
+<td>文本颜色</td>
+<td>通常十六进制缩写</td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>文本对齐</td>
+<td></td>
+</tr>
+<tr>
+<td>text-indent</td>
+<td>文本缩进</td>
+<td>记住 <code>text-indent: 2em;</code></td>
+</tr>
+<tr>
+<td>text-decoration</td>
+<td>文本装饰</td>
+<td>记住下划线和去除下划线</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>行高</td>
+<td>行高高度和盒子高度一样会使文字垂直水平居中。</td>
+</tr>
+</tbody></table>
+<h3 id="5-CSS引用方式"><a href="#5-CSS引用方式" class="headerlink" title="5.CSS引用方式"></a>5.CSS引用方式</h3><p>按照 CSS 书写的位置不同，CSS 样式表可以分为三大类：</p>
+<ol>
+<li>行内样式表（行内式）</li>
+<li>内部样式表（嵌入式）</li>
+<li>外部样式表（链接式）</li>
+</ol>
+<h4 id="5-1内部样式表"><a href="#5-1内部样式表" class="headerlink" title="5.1内部样式表"></a>5.1内部样式表</h4><p>将 CSS 代码写在 HTML 页面内部，单独放在一个 <code>&lt;style&gt;</code> 标签中。</p>
+<ul>
+<li><code>&lt;style&gt;</code> 理论上可以放在 HTML 文档中任何一个地方，一般放在 <code>&lt;head&gt;</code> 标签中。</li>
+<li>方便控制整个页面中的元素样式。</li>
+</ul>
+<p>建议练习时使用</p>
+<h4 id="5-2行内样式表"><a href="#5-2行内样式表" class="headerlink" title="5.2行内样式表"></a>5.2行内样式表</h4><p>行内样式表（内联样式表）是在元素标签内部的 <code>style</code> 属性中设定 CSS 样式，适合修改简单样式。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">div</span> style=&quot;<span class="attribute">color</span>: red; <span class="attribute">font-size</span>: <span class="number">12px</span><span class="string">&quot;&gt;行内样式表&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置当前标签样式</li>
+<li>书写繁琐，不推荐大量使用</li>
+</ul>
+<h4 id="5-3外部样式表"><a href="#5-3外部样式表" class="headerlink" title="5.3外部样式表"></a>5.3外部样式表</h4><p>实际开发中都是外部样式表，适用于样式比较多的情况。 核心：样式单独写到 CSS 文件中，再将 CSS 文件引入到 HTML 页面中。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;css文件路径&quot; /&gt;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -265,13 +524,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2021/10/22/%E7%94%B3%E8%AF%B7%E4%B9%A6/" rel="prev" title="申请书">
-      <i class="fa fa-chevron-left"></i> 申请书
-    </a></div>
-      <div class="post-nav-item"></div>
-    </div>
       </footer>
     
   </article>
@@ -329,7 +581,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E7%AE%80%E4%BB%8B%E5%92%8C%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">CSS简介和基础选择器的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-css%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">1.css简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2%E7%BD%91%E9%A1%B5%E7%9A%84%E7%BE%8E%E5%AE%B9%E5%B8%88"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.2网页的美容师</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2CSS%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2CSS语法规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-css%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.css代码风格</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-css%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">2.css选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1选择器的作用</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS%E7%AE%80%E4%BB%8B%E5%92%8C%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">CSS简介和基础选择器的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-css%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">1.css简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2%E7%BD%91%E9%A1%B5%E7%9A%84%E7%BE%8E%E5%AE%B9%E5%B8%88"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.2网页的美容师</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2CSS%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2CSS语法规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-css%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.css代码风格</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-css%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.</span> <span class="nav-text">2.css选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1%E9%80%89%E6%8B%A9%E5%99%A8%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1选择器的作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2%E9%80%89%E6%8B%A9%E5%99%A8%E5%88%86%E7%B1%BB"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2选择器分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3%E6%A0%87%E7%AD%BE%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3标签选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.4.</span> <span class="nav-text">2.4类选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-1%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8-%E5%A4%9A%E7%B1%BB%E5%90%8D"><span class="nav-number">1.2.5.</span> <span class="nav-text">2.4.1类选择器-多类名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5id%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.2.6.</span> <span class="nav-text">2.5id选择器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7%E5%9F%BA%E7%A1%80%E9%80%89%E6%8B%A9%E5%99%A8%E6%80%BB%E7%BB%93"><span class="nav-number">1.2.7.</span> <span class="nav-text">2.7基础选择器总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-css%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7"><span class="nav-number">1.3.</span> <span class="nav-text">3.css字体属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1%E5%AD%97%E4%BD%93%E7%B3%BB%E5%88%97"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1字体系列</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2字体大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3%E5%AD%97%E4%BD%93%E7%B2%97%E7%BB%86"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3字体粗细</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4%E6%96%87%E5%AD%97%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.3.4.</span> <span class="nav-text">3.4文字样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5%E5%AD%97%E4%BD%93%E7%AC%A6%E5%90%88%E5%B1%9E%E6%80%A7%E5%86%99%E6%B3%95"><span class="nav-number">1.3.5.</span> <span class="nav-text">3.5字体符合属性写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7%E6%80%BB%E7%BB%93"><span class="nav-number">1.3.6.</span> <span class="nav-text">3.6字体属性总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-CSS%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7"><span class="nav-number">1.4.</span> <span class="nav-text">4.CSS文本属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1%E6%96%87%E6%9C%AC%E9%A2%9C%E8%89%B2"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1文本颜色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2%E5%AF%B9%E5%85%B6%E6%96%87%E6%9C%AC"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2对其文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3%E8%A3%85%E9%A5%B0%E6%96%87%E6%9C%AC"><span class="nav-number">1.4.3.</span> <span class="nav-text">4.3装饰文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4%E6%96%87%E6%9C%AC%E7%BC%A9%E8%BF%9B"><span class="nav-number">1.4.4.</span> <span class="nav-text">4.4文本缩进</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5%E8%A1%8C%E9%97%B4%E8%B7%9D"><span class="nav-number">1.4.5.</span> <span class="nav-text">4.5行间距</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-6%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7%E6%80%BB%E7%BB%93"><span class="nav-number">1.4.6.</span> <span class="nav-text">4.6文本属性总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-CSS%E5%BC%95%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="nav-number">1.5.</span> <span class="nav-text">5.CSS引用方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1%E5%86%85%E9%83%A8%E6%A0%B7%E5%BC%8F%E8%A1%A8"><span class="nav-number">1.5.1.</span> <span class="nav-text">5.1内部样式表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2%E8%A1%8C%E5%86%85%E6%A0%B7%E5%BC%8F%E8%A1%A8"><span class="nav-number">1.5.2.</span> <span class="nav-text">5.2行内样式表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3%E5%A4%96%E9%83%A8%E6%A0%B7%E5%BC%8F%E8%A1%A8"><span class="nav-number">1.5.3.</span> <span class="nav-text">5.3外部样式表</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -343,20 +595,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">日志</span>
         </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-            <a href="/categories/">
-          
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">1</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

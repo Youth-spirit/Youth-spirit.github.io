@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"remd.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="盒子模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS复习三">
+<meta property="og:url" content="https://remd.top/CSS%E5%A4%8D%E4%B9%A0%E4%B8%89/index.html">
+<meta property="og:site_name" content="内卷工厂">
+<meta property="og:description" content="盒子模型">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/Administrator/Desktop/HTML/images/1.png">
+<meta property="article:published_time" content="2021-10-25T16:18:35.000Z">
+<meta property="article:modified_time" content="2021-10-27T01:42:32.072Z">
+<meta property="article:author" content="王洋">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/Administrator/Desktop/HTML/images/1.png">
+
+<link rel="canonical" href="https://remd.top/CSS%E5%A4%8D%E4%B9%A0%E4%B8%89/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CSS复习三 | 内卷工厂</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">内卷工厂</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">日常生活和学习笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://remd.top/CSS%E5%A4%8D%E4%B9%A0%E4%B8%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="王洋">
+      <meta itemprop="description" content="记录生活啦~">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="内卷工厂">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CSS复习三
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-10-25 16:18:35" itemprop="dateCreated datePublished" datetime="2021-10-25T16:18:35Z">2021-10-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-10-27 01:42:32" itemprop="dateModified" datetime="2021-10-27T01:42:32Z">2021-10-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h2><span id="more"></span>
+
+<h3 id="1-盒子模型"><a href="#1-盒子模型" class="headerlink" title="1.盒子模型"></a>1.盒子模型</h3><h4 id="1-1看透网页本质"><a href="#1-1看透网页本质" class="headerlink" title="1.1看透网页本质"></a>1.1看透网页本质</h4><p>网页布局过程：</p>
+<ol>
+<li>准备网页元素，网页元素基本都是盒子 box</li>
+<li>利用 CSS 设置好盒子样式，然后摆放到相应位置。</li>
+<li>往盒子里放东西。</li>
+</ol>
+<p>本质：利用 CSS 摆盒子。</p>
+<h4 id="1-2盒子模型（Box-Model）组成"><a href="#1-2盒子模型（Box-Model）组成" class="headerlink" title="1.2盒子模型（Box Model）组成"></a>1.2盒子模型（Box Model）组成</h4><p>CSS 盒子模型本质上是一个盒子，封装周围的 HTML 元素，包括：边框、外边距、内边距和实际内容。</p>
+<p><img src="C:\Users\Administrator\Desktop\HTML\images\1.png"></p>
+<h4 id="1-3边框（border）"><a href="#1-3边框（border）" class="headerlink" title="1.3边框（border）"></a>1.3边框（border）</h4><p>border 可以设置元素边框。边框有三个组成：<code>border-width</code>、<code>border-style</code>、<code>border-color</code></p>
+<p><strong>语法</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*属性可连写*/</span></span><br><span class="line"><span class="attribute">border</span>: border-width || border-style || border-color;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>border-width</td>
+<td>定义边框粗细，单位 px</td>
+</tr>
+<tr>
+<td>border-style</td>
+<td>边框样式</td>
+</tr>
+<tr>
+<td>border-color</td>
+<td>边框颜色</td>
+</tr>
+</tbody></table>
+<p><strong>边框属性简写</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border</span>: <span class="number">5px</span> solid pink;</span><br></pre></td></tr></table></figure>
+
+<p><strong>边框属性分写</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*注意层叠性*/</span></span><br><span class="line"><span class="attribute">border-top</span>: <span class="number">1px</span> solid red;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4表格的细线边框"><a href="#1-4表格的细线边框" class="headerlink" title="1.4表格的细线边框"></a>1.4表格的细线边框</h4><p><code>border-collapse</code> 属性控制浏览器绘制表格边框的方式。它控制相邻单元格的边框。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border-collapse</span>: collapse;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>collapse 是合并的意思</li>
+<li><code>border-collapse:collapse;</code> 表示将相邻边框合并在一起</li>
+</ul>
+<h4 id="1-5边框会影响盒子实际大小"><a href="#1-5边框会影响盒子实际大小" class="headerlink" title="1.5边框会影响盒子实际大小"></a>1.5边框会影响盒子实际大小</h4><p>边框会额外增加盒子的实际大小，因此有两种方案解决。</p>
+<ol>
+<li>测量盒子大小的时候，不测边框。</li>
+<li>若测量的时候包含了边框，则需要 width/height-边框宽度。</li>
+</ol>
+<h4 id="1-6内边距padding"><a href="#1-6内边距padding" class="headerlink" title="1.6内边距padding"></a>1.6内边距padding</h4><p><code>padding</code> 属性设置内边距，即边框与内容之间的距离。</p>
+<ul>
+<li><code>padding-left</code>: 左内边距</li>
+<li><code>padding-right</code>: 右内边距</li>
+<li><code>padding-top</code>: 上内边距</li>
+<li><code>padding-bottotm</code>: 下内边距</li>
+</ul>
+<p><strong>padding 属性简写</strong></p>
+<p><code>padding</code> 的值的个数：</p>
+<ul>
+<li>1 个值：上下左右</li>
+<li>2 个值：上下，左右</li>
+<li>3 个值：上，左右，下</li>
+<li>4 个值：上，右，下，左，顺时针</li>
+</ul>
+<p><strong>padding 会影响盒子实际大小</strong></p>
+<p>当给盒子指定了 <code>padding</code> 值以后，发生了两件事情：</p>
+<ol>
+<li>内容和边框有了距离，增加内边距</li>
+<li>padding 值影响了盒子实际大小</li>
+</ol>
+<p>也就是说，当盒子已经有了宽度和高度，再指定内边距，会撑大盒子。</p>
+<p>要保证盒子和效果图一样大，则让 <code>width/height</code>-多出来的内边距大小即可。</p>
+<h4 id="1-7box-sizing属性解决方案"><a href="#1-7box-sizing属性解决方案" class="headerlink" title="1.7box-sizing属性解决方案"></a>1.7box-sizing属性解决方案</h4><p>CSS 中的 <code>box-sizing</code> 属性定义了 <code>user agent</code> 应该如何计算一个元素的总宽度和总高度。</p>
+<p>在设置了一个盒子的 <code>width/height</code> 后，再设置其 <code>border/padding</code> 会影响盒子实际大小。当进行响应式布局时，这个尤其烦人。</p>
+<p>box-sizing 属性可以被用来调整这些表现。</p>
+<ul>
+<li><code>content-box</code> 是默认值。如果你设置一个元素的宽为<code>100px</code>，那么这个元素的内容区会有 <code>100px</code> 宽，并且任何边框和内边距的宽度都会被增加到最后绘制出来的元素宽度中。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: content-box;</span><br></pre></td></tr></table></figure>
+
+<p><strong>例子：</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#example1</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: content-box;  </span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">30px</span>;  </span><br><span class="line">  <span class="attribute">border</span>: <span class="number">10px</span> solid blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**这个盒子的宽度就是 300+(左右边距)+20(左右边框)+60=380</span></span><br><span class="line"><span class="comment">后面自己加的边距和边框会最后会加在宽度里就是盒子最终的宽度</span></span><br><span class="line"><span class="comment">高度同理</span></span><br><span class="line"><span class="comment">**/</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>border-box</code> 告诉浏览器：你想要设置的边框和内边距的值是包含在 <code>width</code> 内的。也就是说，如果你将一个元素的 <code>width</code> 设为 <code>100px</code>，那么这 100px 会包含它的 <code>border</code> 和 <code>padding</code>，内容区的实际宽度是 <code>width</code> 减去 <code>(border + padding)</code> 的值。大多数情况下，这使得我们更容易地设定一个元素的宽高。</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">box-sizing</span>: border-box;</span><br></pre></td></tr></table></figure>
+
+<p><strong>例子:</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#example2</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">30px</span>;  </span><br><span class="line">  <span class="attribute">border</span>: <span class="number">10px</span> solid blue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">不管如何加边距和边框这里的完整宽度只能为300px!</span></span><br><span class="line"><span class="comment">**/</span></span><br></pre></td></tr></table></figure>
+
+<p>尺寸计算公式： <code>width = border + padding + 内容的宽度</code> <code>height = border + padding + 内容的高度</code></p>
+<p><strong>若盒子没有指定 <code>width/height</code> 属性，则此时 <code>padding</code> 不会撑开盒子大小。</strong></p>
+<h4 id="1-8外边距"><a href="#1-8外边距" class="headerlink" title="1.8外边距"></a>1.8外边距</h4><p><code>margin</code> 属性用于设置外边距，即控制盒子与盒子之间的距离。</p>
+<ul>
+<li><code>margin-left</code>: 左外边距</li>
+<li><code>margin-right</code>: 右外边距</li>
+<li><code>margin-top</code>: 上外边距</li>
+<li><code>margin-bottotm</code>: 下外边距</li>
+</ul>
+<p><code>margin</code> 简写方式与 <code>padding</code> 一致。</p>
+<h4 id="1-9外边距典型应用"><a href="#1-9外边距典型应用" class="headerlink" title="1.9外边距典型应用"></a>1.9外边距典型应用</h4><p>外边距可以让块级盒子 <strong>水平居中</strong>，但是必须满足两个条件：</p>
+<ol>
+<li>盒子必须指定宽度（width）</li>
+<li>盒子左右的外边距都设置为 <code>auto</code></li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">960px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使行内元素或行内块元素水平居中,只需要在父亲中定义</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">text-align</span>: center;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-10外边距合并"><a href="#1-10外边距合并" class="headerlink" title="1.10外边距合并"></a>1.10外边距合并</h4><h5 id="1-相邻元素垂直外边距的合并"><a href="#1-相邻元素垂直外边距的合并" class="headerlink" title="1.相邻元素垂直外边距的合并"></a>1.相邻元素垂直外边距的合并</h5><p>当上下相邻块元素相遇时，若上面的元素有下外边距，下面的元素有上外边距，则他们之间的垂直间距不是 <code>margin-bottotm</code> 与 <code>margin-top</code> 之和。取两个值中的较大者这种现象被称为相邻元素垂直外边距的合并。</p>
+<p><strong>解决方案</strong>： 避免就好了。</p>
+<h5 id="2-嵌套元素垂直外边距的塌陷"><a href="#2-嵌套元素垂直外边距的塌陷" class="headerlink" title="2.嵌套元素垂直外边距的塌陷"></a>2.嵌套元素垂直外边距的塌陷</h5><p>对于两个嵌套关系的块元素，父元素有上外边距同时子元素也有上外边距，此时父元素会塌陷较大的外边距值。</p>
+<p>解决方案</p>
+<ol>
+<li>为父元素定义上边框</li>
+<li>为父元素定义上内边距</li>
+<li>为父元素添加 <code>overflow:hidden</code></li>
+</ol>
+<h4 id="1-11清除内外边距"><a href="#1-11清除内外边距" class="headerlink" title="1.11清除内外边距"></a>1.11清除内外边距</h4><p>网页元素很多都带有默认内外边距，而且不同浏览器默认的也不一致，因此在布局前，要先清除网页元素的内外边距。</p>
+<p><strong>语法</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：行内元素为了照顾兼容性，尽量只设置左右内外边距，不要设置上下内外边距。但是转换为块级和行内块元素就可以设置。</p>
+<h3 id="3-圆角边框"><a href="#3-圆角边框" class="headerlink" title="3.圆角边框"></a>3.圆角边框</h3><p>CSS3新增 <strong>圆角边框</strong> 属性，盒子可以变成圆角。</p>
+<p><code>border-radius</code> 属性用于设置元素的外边框圆角。</p>
+<p>语法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">border-radius</span>: length;</span><br></pre></td></tr></table></figure>
+
+<p>原理</p>
+<p>（椭）圆与边框的交集形成的圆角效果。</p>
+<p>参数</p>
+<ul>
+<li>参数值可以为数值或百分比的形式</li>
+<li>若是正方形，想要设置一个圆，则将数值修改为高度或者宽度的一般即可，或者直接写为 50%</li>
+<li>若是矩形，设置为 height 的一半就可以做</li>
+<li>简写属性，跟四个值，分别代表左上角、右上角、右下角、左下角</li>
+<li>分开来写：<code>border-top-left-radius</code>、<code>border-top-right-radius</code>、<code>border-bottom-right-radius</code>、<code>border-bottom-left-radius</code></li>
+</ul>
+<h3 id="4-盒子阴影"><a href="#4-盒子阴影" class="headerlink" title="4.盒子阴影"></a>4.盒子阴影</h3><p>CSS3 新增盒子阴影，使用 <code>box-shadow</code> 属性。</p>
+<p>语法</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bxo-shadow: h-shadow v-shadow blur spread color inset;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h-shadow</td>
+<td>必需，水平阴影的位置，允许负值</td>
+</tr>
+<tr>
+<td>v-shadow</td>
+<td>必需，垂直阴影的位置，允许负值</td>
+</tr>
+<tr>
+<td>blur</td>
+<td>可选，模糊距离</td>
+</tr>
+<tr>
+<td>spread</td>
+<td>可选，阴影的尺寸</td>
+</tr>
+<tr>
+<td>color</td>
+<td>可选，阴影的颜色</td>
+</tr>
+<tr>
+<td>inset</td>
+<td>可选，将外部阴影改为内部阴影（默认是外部阴影）</td>
+</tr>
+</tbody></table>
+<p>注意：</p>
+<ol>
+<li>默认是外阴影，但是不可以写这个单词（outset）</li>
+<li>盒子阴影不占空间，不会影响其他盒子排列</li>
+</ol>
+<h3 id="5-文字阴影"><a href="#5-文字阴影" class="headerlink" title="5.文字阴影"></a>5.文字阴影</h3><p>CSS3 中，使用 <code>text-shadow</code> 属性设置文本阴影。</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>h-shadow</td>
+<td>必需，水平阴影位置。允许负值。</td>
+</tr>
+<tr>
+<td>v-shadow</td>
+<td>必须，垂直阴影。允许负值。</td>
+</tr>
+<tr>
+<td>blur</td>
+<td>可选，模糊距离。</td>
+</tr>
+<tr>
+<td>color</td>
+<td>可选，阴影颜色。</td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+	<div>
+	  
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+	  
+	</div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>王洋
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://remd.top/CSS%E5%A4%8D%E4%B9%A0%E4%B8%89/" title="CSS复习三">https://remd.top/CSS复习三/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS/" rel="tag"># CSS</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/CSS%E5%A4%8D%E4%B9%A0%E4%BA%8C/" rel="prev" title="CSS复习二">
+      <i class="fa fa-chevron-left"></i> CSS复习二
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/CSS%E5%A4%8D%E4%B9%A0%E5%9B%9B/" rel="next" title="CSS复习四">
+      CSS复习四 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">盒子模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">1.盒子模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1%E7%9C%8B%E9%80%8F%E7%BD%91%E9%A1%B5%E6%9C%AC%E8%B4%A8"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1看透网页本质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%EF%BC%88Box-Model%EF%BC%89%E7%BB%84%E6%88%90"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2盒子模型（Box Model）组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3%E8%BE%B9%E6%A1%86%EF%BC%88border%EF%BC%89"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3边框（border）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4%E8%A1%A8%E6%A0%BC%E7%9A%84%E7%BB%86%E7%BA%BF%E8%BE%B9%E6%A1%86"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.4表格的细线边框</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5%E8%BE%B9%E6%A1%86%E4%BC%9A%E5%BD%B1%E5%93%8D%E7%9B%92%E5%AD%90%E5%AE%9E%E9%99%85%E5%A4%A7%E5%B0%8F"><span class="nav-number">1.1.5.</span> <span class="nav-text">1.5边框会影响盒子实际大小</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6%E5%86%85%E8%BE%B9%E8%B7%9Dpadding"><span class="nav-number">1.1.6.</span> <span class="nav-text">1.6内边距padding</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7box-sizing%E5%B1%9E%E6%80%A7%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.1.7.</span> <span class="nav-text">1.7box-sizing属性解决方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-8%E5%A4%96%E8%BE%B9%E8%B7%9D"><span class="nav-number">1.1.8.</span> <span class="nav-text">1.8外边距</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-9%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8"><span class="nav-number">1.1.9.</span> <span class="nav-text">1.9外边距典型应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-10%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%90%88%E5%B9%B6"><span class="nav-number">1.1.10.</span> <span class="nav-text">1.10外边距合并</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-%E7%9B%B8%E9%82%BB%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E5%A4%96%E8%BE%B9%E8%B7%9D%E7%9A%84%E5%90%88%E5%B9%B6"><span class="nav-number">1.1.10.1.</span> <span class="nav-text">1.相邻元素垂直外边距的合并</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-%E5%B5%8C%E5%A5%97%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E5%A4%96%E8%BE%B9%E8%B7%9D%E7%9A%84%E5%A1%8C%E9%99%B7"><span class="nav-number">1.1.10.2.</span> <span class="nav-text">2.嵌套元素垂直外边距的塌陷</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-11%E6%B8%85%E9%99%A4%E5%86%85%E5%A4%96%E8%BE%B9%E8%B7%9D"><span class="nav-number">1.1.11.</span> <span class="nav-text">1.11清除内外边距</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%9C%86%E8%A7%92%E8%BE%B9%E6%A1%86"><span class="nav-number">1.2.</span> <span class="nav-text">3.圆角边框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%9B%92%E5%AD%90%E9%98%B4%E5%BD%B1"><span class="nav-number">1.3.</span> <span class="nav-text">4.盒子阴影</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%96%87%E5%AD%97%E9%98%B4%E5%BD%B1"><span class="nav-number">1.4.</span> <span class="nav-text">5.文字阴影</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="王洋"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">王洋</p>
+  <div class="site-description" itemprop="description">记录生活啦~</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王洋</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"live2d-widget-model-haruto"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
